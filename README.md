@@ -8,25 +8,22 @@ Tiny Core Linux is a lightweight operating system that loads entirely in RAM, ma
    - [Create a Partition](#12-create-a-partition)
    - [Format the Partition](#13-format-the-partition)
    - [Mount the Partition](#14-mount-the-partition)
-
 2. [Shift Storage from RAM to Drive](#2-shift-storage-from-ram-to-drive)
    - [Set Drive as the Backup Location](#21-set-drive-as-the-backup-location)
    - [Perform Backup](#22-perform-backup)
    - [Automate the Backup](#23-automate-the-backup)
-  
 3. [Make Installed Packages Permanent](#3-make-installed-packages-permanent)
    - [Install Python and pip](#31-install-python-and-pip)
    - [Install Packages](#32-install-packages)
    - [Move Packages to Drive](#33-move-packages-to-drive)
-   - [Add Packages to OnBoot List](#34-add-packages-to-onboot-list)
-  
+   - [Add Packages to OnBoot List](#34-add-packages-to-onboot-list)  
 4. [Minimal GUI Setup for Browser Use](#4-minimal-gui-setup-for-browser-use)
    - [Install Minimal GUI Components](#41-install-minimal-gui-components)
    - [Modify Boot Settings for GUI](#42-modify-boot-settings-for-gui)
    - [Test the Setup](#43-test-the-setup)
-
 - [Conclusion](#conclusion)
 - [Issues being faced](#issues-being-faced)
+- [Some common Tiny Core Linux commands](#some-common-tiny-core-linux-commands)
 
 ## 1. Shift Storage from RAM to Drive
 
@@ -150,3 +147,65 @@ Description: After configuring the system to start the browser (e.g., Chromium) 
 
 ### Tiny Core Linux Flashing Issue
 Description: When attempting to flash Tiny Core Linux (initially 16 MB) onto an SD card, the flashing process completes, but upon accessing the SD card, an error is displayed and the system prompts to format the disk. The error suggests that the disk might be corrupted or not properly recognized.
+
+## Some common Tiny Core Linux commands
+### System Commands
+- Check disk space:
+  ```bash
+  df -h
+- Check memory usage:
+  ```bash
+  free -m
+- List mounted drives:
+  ```bash
+  mount
+- Shut down the system:
+  ```bash
+  sudo poweroff
+- Reboot the system:
+  ```bash
+  sudo reboot
+### File Management Commands
+- List files in a directory:
+  ```bash
+  ls
+- Copy a file:
+  ```bash
+  cp source_file destination
+- Move/rename a file:
+  ```bash
+  mv old_name new_name
+- Create a directory:
+  ```bash
+  mkdir new_directory
+- Delete a file:
+  ```bash
+  rm filename
+### Package Management Commands
+- Search for a package:
+  ```bash
+  tce
+  tce-ab
+- Install a package:
+  ```bash
+  tce-load -wi package_name
+- Remove a package:
+  ```bash
+  tce-remove package_name
+### System Configuration
+- Edit a file using vi editor:
+  ```bash
+  vi filename
+- Edit a file using nano editor:
+  ```bash
+  nano filename
+- Edit the bootloader:
+  ```bash
+  sudo nano /opt/bootlocal.sh
+### Backup and Restore
+- Backup current configuration:
+  ```bash
+  filetool.sh -b
+- Restore configuration:
+  ```bash
+  filetool.sh -r
